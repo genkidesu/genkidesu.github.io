@@ -24,6 +24,7 @@ header h1 .seo {
     color: #d9dcd6;
 }
 
+/* header links */
 header div {
     padding-top: 15px;
     margin-right: 20px;
@@ -41,8 +42,6 @@ header div ul li {
     margin-left: 25px;
 }
 
-
-
 a {
     color: #ffffff;
     text-decoration: none;
@@ -52,6 +51,7 @@ p {
     font-size: 16px;
 }
 
+/*top image*/
 .hero {
     height: 800px;
     width: 100%;
@@ -72,12 +72,14 @@ p {
     margin-left: 25px;
 }
 
+/*main*/
 .content {
     width: 75%;
     display: inline-block;
     margin-left: 20px;
 }
 
+/*side bar*/
 .benefits {
     margin-right: 20px;
     padding: 20px;
@@ -137,6 +139,7 @@ p {
     max-width: 150px;
 }
 
+/*main content*/
 .search-engine-optimization {
     margin-bottom: 20px;
     padding: 50px;
@@ -202,6 +205,7 @@ p {
     font-size: 20px;
 }
 
+/*modified to put header links below main header to prevent crowding*/
 @media screen and (max-width:1074px){
     header {
         display: flex;
@@ -216,6 +220,7 @@ p {
     }  
 }
 
+/*modified to put the side bar below main content when screen is small and to resolve an issue with overflow*/
 @media screen and (max-width:953px){
     header {
         display: flex;
