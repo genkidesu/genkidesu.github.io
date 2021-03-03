@@ -22,3 +22,7 @@ $(".seeDetails").on('click', function(){
 $(".drop").on('click', function(){
     $(".dropped").css("display", "flex");
    });
+
+$(".dropped").on('click', function(){
+    $(".dropped").css("display", "none");
+   });
