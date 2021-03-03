@@ -47,7 +47,6 @@ h1 {
 
 h2, h3 {
     font-size: 1em;
-    font-style: bold;
 }
 
 
@@ -243,7 +242,6 @@ body {
     position: relative;
     bottom: 80px;
     color: black;
-    font-weight: bold;
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.247), var(--gold));
     line-height: 40px;
     text-align: right;
