@@ -20,13 +20,11 @@ $(".seeDetails").on('click', function(){
 
 // Added below as the menu button wasnt working when visiting on phone  
 $(".drop").on('click', function(){
-    $(".dropped").css("display", "flex");
-   });
+  $(".dropped").css("display", "flex");
+ });
 
-$("#away").on('click', function(){
-    $(".dropped").css("display", "none");
-   });
-
-$(".dropped").on('click', function(){
-    $(".dropped").css("display", "none");
-   });   
+ $(window).scroll(function() {
+  if ($(this).scrollTop() > 0) {
+    $('.dropped').fadeOut();
+  }
+});
