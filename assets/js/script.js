@@ -26,3 +26,7 @@ $(".drop").on('click', function(){
 $("#away").on('click', function(){
     $(".dropped").css("display", "none");
    });
+
+$(".dropped").on('click', function(){
+    $(".dropped").css("display", "none");
+   });   
