@@ -17,3 +17,8 @@ $(".seeDetails").on('click', function(){
     $(".seeDetails").remove();
     $(".hide").css("display", "inline-block");
    });
+
+// Added below as the menu button wasnt working when visiting on phone  
+$(".drop").on('click', function(){
+    $(".dropped").css("display", "flex");
+   });
