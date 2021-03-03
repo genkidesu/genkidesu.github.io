@@ -23,6 +23,10 @@ $(".drop").on('click', function(){
   $(".dropped").css("display", "flex");
  });
 
+ $(".drop").hover(function(){
+  $('.dropped').fadeIn();
+ });
+
  $(window).scroll(function() {
   if ($(this).scrollTop() > 0) {
     $('.dropped').fadeOut();
