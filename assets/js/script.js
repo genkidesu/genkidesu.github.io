@@ -23,6 +23,6 @@ $(".drop").on('click', function(){
     $(".dropped").css("display", "flex");
    });
 
-$(".dropped").on('click', function(){
+$("#away").on('click', function(){
     $(".dropped").css("display", "none");
    });
