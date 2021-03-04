@@ -155,7 +155,7 @@ body {
     padding: 2em;
 }
 
-/*Each section is row which keeps a sidebar (larger screens) and a main content section */
+/*Each section is row which keeps a sidebar (larger screens) and a main content section  */
 .section {
     display: flex;
     flex-direction: row;
