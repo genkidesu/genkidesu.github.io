@@ -13,6 +13,6 @@ https://genkidesu.github.io/
 
 # Mock Up:
 
-![Screen-capture of the site:](./assets/images/download.png)
+![Screen-capture of the site:](./assets/images/screenpicture.png)
 
 
