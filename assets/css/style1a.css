@@ -147,7 +147,7 @@ body {
     background-color: var(--whitish);
     margin: 0;
 }
-
+/* .owner is the overall container div for the main section, it is a column and lists the inner sections vertically  */
 .owner {
     display: flex;
     flex-direction: column;
@@ -155,12 +155,12 @@ body {
     padding: 2em;
 }
 
-/*Each section is kept in its own section container */
+/*Each section is row which keeps a sidebar (larger screens) and a main content section */
 .section {
     display: flex;
     flex-direction: row;
 }
-/* contains the main content DIVs, controls layout */
+/* contains all the main content DIVs, controls  layout */
 .cntnr {
     display: flex;
     flex-direction: column;
@@ -173,7 +173,7 @@ body {
     z-index: 1;
     width: 70%;
 }
-/* This is the side navigation bar, it collapses on smaller screens */
+/* This is the side navigation bar, it is visible on medium and large screens */
 .sidebar {
     position: relative;
     margin: 1em;
@@ -206,7 +206,7 @@ body {
     font-family: sans-serif;
     padding: 0px 0px 0px 20px;
 }
-/* controls the layout of the inner main content area DIVS */
+/* controls the layout of two of the inner main content area DIVS, layout row */
 .innerOwner {
     display: flex;
     flex-direction: row;
@@ -214,7 +214,7 @@ body {
     width: 100%;
 }
 
-/* controls layout of inner main content area DIVs for applications section */
+/* controls layout of inner main content area DIVs for applications section, layout column */
 .innerOwner1 {
     display: flex;
     flex-direction: column;
@@ -358,8 +358,8 @@ textarea {
     }
 
 #contactButton {
-        background-color: var(--gold);
-        min-width: 170px;
+    background-color: var(--gold);
+    min-width: 170px;
 }
 
 .seeDetails {
@@ -434,29 +434,23 @@ textarea {
         font-size: 1.5em;
         padding: 0;  
     }
-
     .hdr {
         width: 85%;
-    }
-    
+    }  
     .links,
     .sidebar {
         display: none;
     }
-
     .owner {
         padding: 1em;
     }
-    
     .cntnr {
         flex: 0 90%;
         margin-left: 1em;
     }
-
     .list {
         display: flex;
     }
-
     .cont h2,
     .text1 h2 {
         display: block;
