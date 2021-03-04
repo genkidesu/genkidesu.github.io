@@ -2,175 +2,188 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ty Portfolio</title>
-  <link rel="stylesheet" href="./assets/css/reset.css" />
-  <link rel="stylesheet" href="./assets/css/style1a.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ty Portfolio</title>
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/style1a.css" />
 </head>
 
 <body>
 
-<!-- Header area, the 'list' class is hidden on medium and large screens. 
+    <!-- Header area, the 'list' class is hidden on medium and large screens. 
      The dropped class is only accessible via the list class  -->
-<header>
-    <div class="hdr">
-        <div><h1>Ty Saunders</h1>
+    <header>
+        <div class="hdr">
+            <div>
+                <h1>Ty Saunders</h1>
+            </div>
+            <div class="links">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Sample work</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="list">
+                <div class="drop">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div>
+                <div class="dropped">
+                    <a href="#about">About</a>
+                    <a href="#portfolio">Sample work</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
         </div>
-        <div class="links">
-            <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">Sample work</a></li>
-            <li><a href="#contact">Contact</a></li>
-            </ul>
-            </div>  
-        <div class="list">
-            <div class="drop">
-            <span class="line"></span>
-            <span class="line"></span>
-            <span class="line"></span>
-            </div>
-        <div class="dropped">
-            <a href="#about">About</a>
-            <a href="#portfolio">Sample work</a>
-            <a href="#contact">Contact</a>   
-            </div>
-            </div>
-    </div>
-</header>
+    </header>
 
-<!-- Banner image -->
-<div class="hdrimg"><img src="./assets/images/bg1.png"></div>
- 
-<main>
-<container class="owner">
+    <!-- Banner image -->
+    <div class="hdrimg"><img src="./assets/images/bg1.png"></div>
 
-<!-- About section -->
-<!-- Each section element has a nav bar-->
-<!-- The inner main content of each section is kept in 'cntnr' class  -->
-<!-- .cont h2 is hidden on med/large screens-->
-<section class="section" id="about">
-    <aside class="sidebar">  
-        <h2>About</h2>
-        </aside>
-    <container class="cntnr">  
-        <div class="box">
-            <div class="innerOwner">
-                <div class="cont">
-                <h2>About</h2> 
-                <p>I have worked in the IT field for over 10 years and have experience in many areas including 
-                networking, databases, and cloud services. 
-                In about 6 months from now, I will also code, see my work below. </p>
-                </div>
-                <div class="imgBox"><img src="./assets/images/temp_pic.jpg" class="temp" alt="my picture">
-                </div>
-            </div>
-        </div>  
-    </container>
-</section>
+    <main>
+        <container class="owner">
 
-<!-- Sample work / applications / portfolio section -->
-<!-- first image in 'cont' div, other images in 'sOther' div -->
-<!-- .cont h2 is hidden on med/large screens-->
-<section class="section" id="portfolio">
-    <aside class="sidebar">
-        <h2>Sample Work</h2>
-        </aside>
-    <container class="cntnr">
-        <div class="box">
-            <div class="innerOwner1"> 
-                <div class="cont">
-                    <h2>Sample Work</h2> 
-                    <a href="#sample">
-                    <img src="./assets/images/ph1.jpg" class="sMain" id="first" alt="coming soon">
-                    <div class="coverText"><strong>Coming Soon</strong></div>
-                    </a>
-                </div>
-            <div class="sOtherOwner"> 
-                <div class="sOther">
-                    <a href="#sample">
-                    <img src="./assets/images/ph22.jpg" class="imgOther" id="second" alt="coming soon">
-                    <div class="coverText"><strong>Coming Soon</strong></div>
-                    </a>    
-                </div>
-                <div class="sOther">
-                    <a href="#sample">
-                    <img src="./assets/images/ph3.png" class="imgOther" id="third" alt="coming soon">
-                    <div class="coverText"><strong>Coming Soon</strong></div>
-                    </a>
-                </div>
-                <div class="sOther">
-                    <a href="#sample">
-                    <img src="./assets/images/ph5.jpg" class="imgOther" id="fourth" alt="coming soon">
-                    <div class="coverText"><strong>Coming Soon</strong></div>
-                    </a>
-                </div>
-                <div class="sOther">
-                    <a href="#sample">
-                    <img src="./assets/images/ph44.jpg" class="imgOther" id="fifth" alt="coming soon">
-                    <div class="coverText"><strong>Coming Soon</strong></div>
-                    </a>
-                </div>  
-            </div>
-            </div>
-        </div> 
-    </container>
-</section>
-
-
-<!-- Contact section -->
-<!-- The phone / email are hidden until 'click to show' button is clicked -->
-<!-- Contact form is a placeholder for now -->
-<!-- .text1 h2 is hidden on med/large screens-->
-
-<section class="section" id="contact">
-    <aside class="sidebar">
-        <h2>Contact</h2>
-        </aside>
-    <container class="cntnr">
-        <div class="box">
-            <div class="contactOwner" id="contacts">
-                <div class="text1">
-                    <h2>Contact</h2>
-                    <li><h3>Phone / Email</h3></li>
-                <br><br>
-                    <li> <button class="seeDetails">CLICK TO SHOW</button>  <span class="hide">0400 581 272</span></li>
-                    <li><span class="hide">tysaunders1@hotmail.com  </span></li>  
-                </div>
-                <br><br>
-                <div class="text1" id="contactss">
-                    <li><h3>Contact form:</h3></li>
-                <br><br>
-                    <form class="forms">
-                        <div class="theirDetails">
-                        <li> <input type="text" class="inputs" id="name" placeholder="Name"> </li>
-                        <li> <input type="text" class="inputs" id="email" placeholder="Email"></li>
+            <!-- About section -->
+            <!-- Each section element has a nav bar-->
+            <!-- The inner main content of each section is kept in 'cntnr' class  -->
+            <!-- .cont h2 is hidden on med/large screens-->
+            <section class="section" id="about">
+                <aside class="sidebar">
+                    <h2>About</h2>
+                </aside>
+                <container class="cntnr">
+                    <div class="box">
+                        <div class="innerOwner">
+                            <div class="cont">
+                                <h2>About</h2>
+                                <p>I have worked in the IT field for over 10 years and have experience in many areas
+                                    including
+                                    networking, databases, and cloud services.
+                                    In about 6 months from now, I will also code, see my work below. </p>
+                            </div>
+                            <div class="imgBox"><img src="./assets/images/char_cloud.gif" class="temp" alt="my picture">
+                            </div>
                         </div>
-                        <li> <textarea class="inputs" id="message" placeholder="Message"></textarea></li>
-                        <li> <button id="contactButton">SEND</button></li>
-                    </form>   
-                </div>             
-            </div>
-        </div> 
-    </container>
-</section>
+                    </div>
+                </container>
+            </section>
 
-<br><br><br>
-<!-- closes the 'owner' container which contains all sections -->
-</container>
+            <!-- Sample work / applications / portfolio section -->
+            <!-- first image in 'cont' div, other images in 'sOther' div -->
+            <!-- .cont h2 is hidden on med/large screens-->
+            <section class="section" id="portfolio">
+                <aside class="sidebar">
+                    <h2>Sample Work</h2>
+                </aside>
+                <container class="cntnr">
+                    <div class="box">
+                        <div class="innerOwner1">
+                            <div class="cont">
+                                <h2>Sample Work</h2>
+                                <a href="#sample">
+                                    <img src="./assets/images/ph1.jpg" class="sMain" id="first" alt="coming soon">
+                                    <div class="coverText"><strong>Coming Soon</strong></div>
+                                </a>
+                            </div>
+                            <div class="sOtherOwner">
+                                <div class="sOther">
+                                    <a href="#sample">
+                                        <img src="./assets/images/ph22.jpg" class="imgOther" id="second"
+                                            alt="coming soon">
+                                        <div class="coverText"><strong>Coming Soon</strong></div>
+                                    </a>
+                                </div>
+                                <div class="sOther">
+                                    <a href="#sample">
+                                        <img src="./assets/images/ph3.png" class="imgOther" id="third"
+                                            alt="coming soon">
+                                        <div class="coverText"><strong>Coming Soon</strong></div>
+                                    </a>
+                                </div>
+                                <div class="sOther">
+                                    <a href="#sample">
+                                        <img src="./assets/images/ph5.jpg" class="imgOther" id="fourth"
+                                            alt="coming soon">
+                                        <div class="coverText"><strong>Coming Soon</strong></div>
+                                    </a>
+                                </div>
+                                <div class="sOther">
+                                    <a href="#sample">
+                                        <img src="./assets/images/ph44.jpg" class="imgOther" id="fifth"
+                                            alt="coming soon">
+                                        <div class="coverText"><strong>Coming Soon</strong></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </container>
+            </section>
 
-<!-- footer -->
-<footer class="footer">
-    <li>Some Link here</li>
-    <li>Some Link here</li>
-    <li>Some Link here</li>
-</footer>
 
-</main>
+            <!-- Contact section -->
+            <!-- The phone / email are hidden until 'click to show' button is clicked -->
+            <!-- Contact form is a placeholder for now -->
+            <!-- .text1 h2 is hidden on med/large screens-->
 
-<!-- js--> 
-<script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
-<script src="./assets/js/script.js"> </script>
+            <section class="section" id="contact">
+                <aside class="sidebar">
+                    <h2>Contact</h2>
+                </aside>
+                <container class="cntnr">
+                    <div class="box">
+                        <div class="contactOwner" id="contacts">
+                            <div class="text1">
+                                <h2>Contact</h2>
+                                <li>
+                                    <h3>Phone / Email</h3>
+                                </li>
+                                <br><br>
+                                <li> <button class="seeDetails">CLICK TO SHOW</button> <span class="hide">0400 581
+                                        272</span></li>
+                                <li><span class="hide">tysaunders1@hotmail.com </span></li>
+                            </div>
+                            <br><br>
+                            <div class="text1" id="contactss">
+                                <li>
+                                    <h3>Contact form:</h3>
+                                </li>
+                                <br><br>
+                                <form class="forms">
+                                    <div class="theirDetails">
+                                        <li> <input type="text" class="inputs" id="name" placeholder="Name"> </li>
+                                        <li> <input type="text" class="inputs" id="email" placeholder="Email"></li>
+                                    </div>
+                                    <li> <textarea class="inputs" id="message" placeholder="Message"></textarea></li>
+                                    <li> <button id="contactButton">SEND</button></li>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </container>
+            </section>
+
+            <br><br><br>
+            <!-- closes the 'owner' container which contains all sections -->
+        </container>
+
+        <!-- footer -->
+        <footer class="footer">
+            <li>Some Link here</li>
+            <li>Some Link here</li>
+            <li>Some Link here</li>
+        </footer>
+
+    </main>
+
+    <!-- js-->
+    <script src="https://code.jquery.com/jquery-3.1.1.js"
+        integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+    <script src="./assets/js/script.js"> </script>
 
 </body>
+
 </html>
