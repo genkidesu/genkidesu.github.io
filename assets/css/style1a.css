@@ -3,8 +3,7 @@
 --selection1:  rgba(121, 250, 218, 0.637);
 --selection: rgba(120,121,221,0.8);
 --headers: rgb(20, 20, 20);
---dark: rgba(0,0,0,0.8);
---innertext: #33393f;   
+--dark: rgba(0,0,0,0.8); 
 --ruse: rgb(253, 171, 227);
 --whitish: #ffffff;
 --header: #33393f;
@@ -275,7 +274,8 @@ I couldnt figure out how to remove yet */
 }
 
 .sMain,
-.imgOther {
+.imgOther,
+.temp {
     border-style: inset;
     border-width: 5px;
     border-color: var(--gold);
