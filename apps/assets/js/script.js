@@ -10,6 +10,10 @@ let speC = "!#$%&()*@/:;<=";
 //Screen selectors
 let begin = document.querySelector("#generate");
 let endend = document.querySelector("#password")
+let errors = document.querySelector(".error-display")
+let lengthFail = document.querySelector("#length-fail");
+let nonNumber = document.querySelector("#not-number");
+let noChars = document.querySelector("#no-chars");
 
 //buttons
 let lower = document.querySelector("#lowerY");
@@ -50,6 +54,9 @@ begin.addEventListener('click', function () {
     choices = [];
     baseArray = "";
     endend.innerText = pw;
+    lengthFail.style.display = "none";
+    noChars.style.display = "none";
+    nonNumber.style.display = "none";
     option1.style.display = "flex";
 })
 
@@ -62,12 +69,13 @@ begin.addEventListener('click', function () {
 optionA.addEventListener('keypress', function (e) {
     if (e.keyCode == 13) {
         e.preventDefault();
+        lengthFail.style.display = "none";
         if (optionA.value < 8) {
-            alert("password needs to be at least 8 characters")
+            lengthFail.style.display = "block";
             return "fail: password too short";
         }
         if (optionA.value > 128) {
-            alert("password needs to be less than 128 characters")
+            lengthFail.style.display = "block";
             return "fail: too short";
         }
         pSize.push(optionA.value);
@@ -79,12 +87,13 @@ optionA.addEventListener('keypress', function (e) {
 
 //Listener for the submit button click 
 submit.addEventListener('click', function () {
+    lengthFail.style.display = "none";
     if (optionA.value < 8) {
-        alert("password needs to be at least 8 characters")
+        lengthFail.style.display = "block";
         return "fail: password too short";
     }
     if (optionA.value > 128) {
-        alert("password needs to be less than 128 characters")
+        lengthFail.style.display = "block";
         return "fail: too short";
     }
     pSize.push(optionA.value);
@@ -175,7 +184,8 @@ specialN.addEventListener('click', function () {
 //Choice validation: Constructs an input pool of characters based on user choices
 function charSelector() {
     if (choices.toString() == "n,n,n,n") {
-        alert("At this time, this page lacks the ability to create wordless passwords, click the red button and choose the criteria all over again")
+
+        noChars.style.display = "block";
         return "fail: No characters selected";
     }
     if (choices[0] == "y") {

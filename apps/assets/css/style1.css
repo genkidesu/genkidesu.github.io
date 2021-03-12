@@ -119,6 +119,23 @@ button[disabled] {
 }
 
 /* CHANGES (lines 121 - 238) to make the choices appear on the page, etc. couldn't consolidate options tags  */
+.errors {
+  margin-top: 25px;
+
+}
+
+#graphic {
+  background-color:  rgba(175, 8, 8, 0.445);
+  padding: 1px 8px;
+  border-radius: 2px;
+}
+
+#not-number,
+#length-fail,
+#no-chars {
+  display: none;
+}
+
 .amount {
   display: none;
   flex-direction: row;
@@ -255,6 +272,7 @@ input[type="radio"]{
     font-size: 0.9rem;
   }
 
+  .errors,
   .next,
   .options,
   .options2,
