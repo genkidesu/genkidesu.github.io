@@ -1,0 +1,280 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+.wrapper {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #f9fbfd;
+}
+
+.wrapper {
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  padding-top: 0px;
+  color: hsl(206, 17%, 28%);
+}
+
+.card {
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 5px;
+  border-width: 1px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
+  color: hsl(206, 17%, 28%);
+  font-size: 18px;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 30px 40px;
+}
+
+.card-header::after {
+  content: " ";
+  display: block;
+  width: 100%;
+  background: #e7e9eb;
+  height: 2px;
+}
+
+.card-body {
+  min-height: 120px;
+}
+
+.card-footer {
+  text-align: center;
+}
+
+.card-footer::before {
+  content: " ";
+  display: block;
+  width: 100%;
+  background: #e7e9eb;
+  height: 2px;
+}
+
+.card-footer::after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+.btn {
+  border: none;
+  background-color: hsl(360, 91%, 36%);
+  border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
+    0px;
+  color: hsl(0, 0%, 100%);
+  display: inline-block;
+  font-size: 22px;
+  line-height: 22px;
+  margin: 16px 16px 16px 20px;
+  padding: 14px 34px;
+  text-align: center;
+  cursor: pointer;
+}
+
+button[disabled] {
+  cursor: default;
+  background: #c0c7cf;
+}
+
+.float-right {
+  float: right;
+}
+
+#password {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  display: block;
+  width: 100%;
+  padding-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 10px;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 2px dashed #c0c7cf;
+  border-radius: 6px;
+  resize: none;
+  overflow: hidden;
+}
+
+/* CHANGES (lines 121 - 238) to make the choices appear on the page, etc. couldn't consolidate options tags  */
+.amount {
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  transition: 0.5s;
+}
+.options {
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  transition: 0.5s;
+}
+.options2 {
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  transition: 0.5s;
+}
+.options3 {
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    transition: 0.5s;
+}
+.options4 {
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    transition: 0.5s;
+}
+
+#ok1 {
+    display: none;
+}
+#ok2, #ok3, #ok4 {
+    display: none;
+}
+
+.length {
+  height: 100%;
+  margin: 0px 15px 0px 15px;
+  border-radius: 5px;
+  width: 120px;
+  border: 2px solid lightgrey;
+}
+.next {
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+  border-color: #00d90b;
+  color: grey;
+}
+.choose{
+    background: #fff;
+    height: 100%;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 0px 0px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid lightgrey;
+    transition: all 0.3s ease;
+  }
+input[type="radio"]{
+    display: none;
+  }
+#lowerY:checked:checked ~ .affirmative,
+#upperY:checked:checked ~ .affirmative,
+#numY:checked:checked ~ .affirmative,
+#specialY:checked:checked ~ .affirmative{
+    background-color: #00d90b;
+    border-color: #00d90b;
+  }  
+#lowerN:checked:checked ~ .no-thanks,
+#upperN:checked:checked ~ .no-thanks,
+#numN:checked:checked ~ .no-thanks,
+#specialN:checked:checked ~ .no-thanks  {
+    background-color: hsl(360, 91%, 36%);
+    border-color: hsl(360, 91%, 36%);   
+  } 
+#lowerY:checked:checked ~ .affirmative .chosen,
+#upperY:checked:checked ~ .affirmative .chosen,
+#numY:checked:checked ~ .affirmative .chosen,
+#specialY:checked:checked ~ .affirmative .chosen,
+#lowerN:checked:checked ~ .no-thanks .chosen,
+#upperN:checked:checked ~ .no-thanks .chosen,
+#numN:checked:checked ~ .no-thanks .chosen,
+#specialN:checked:checked ~ .no-thanks .chosen {
+    background: #fff;
+  }
+.length, .options .choose span{
+    font-size: 20px;
+    color: grey;
+  }
+#lowerY:checked:checked ~ .affirmative span,
+#upperY:checked:checked ~ .affirmative span,
+#numY:checked:checked ~ .affirmative span,
+#specialY:checked:checked ~ .affirmative span,
+#lowerN:checked:checked ~ .no-thanks span,
+#upperN:checked:checked ~ .no-thanks span,
+#numN:checked:checked ~ .no-thanks span,
+#specialN:checked:checked ~ .no-thanks span {
+    color: #fff;
+  }
+
+
+/* Some changes made to make layout better on smaller screens */
+
+@media (max-width: 800px) {
+  .btn {
+    font-size: 0.9rem;
+    margin: 16px 0px 0px 0px;
+    padding: 10px 15px;
+  }
+
+  .card-body {
+      display: flex;
+      justify-content: center;
+  }
+
+  #password {
+    font-size: 0.9rem;
+  }
+
+  .next,
+  .options,
+  .options2,
+  .options3,
+  .options4,
+  .amount,
+  #plength,
+  .amount .choose span,
+  .options .choose span,
+  .options2 .choose span,
+  .options3 .choose span,
+  .options4 .choose span {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .btn {
+    font-size: 0.7rem;
+  }
+
+
+}
