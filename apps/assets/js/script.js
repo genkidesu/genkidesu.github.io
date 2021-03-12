@@ -70,6 +70,12 @@ optionA.addEventListener('keypress', function (e) {
     if (e.keyCode == 13) {
         e.preventDefault();
         lengthFail.style.display = "none";
+        nonNumber.style.display = "none";
+
+        if (isNaN(optionA.value)) {
+            nonNumber.style.display = "block";
+            return "fail: not a number";
+        }
         if (optionA.value < 8) {
             lengthFail.style.display = "block";
             return "fail: password too short";
@@ -78,6 +84,7 @@ optionA.addEventListener('keypress', function (e) {
             lengthFail.style.display = "block";
             return "fail: too short";
         }
+
         pSize.push(optionA.value);
         option1.style.display = "none";
         option2.style.display = "flex";
@@ -88,6 +95,12 @@ optionA.addEventListener('keypress', function (e) {
 //Listener for the submit button click 
 submit.addEventListener('click', function () {
     lengthFail.style.display = "none";
+    nonNumber.style.display = "none";
+
+    if (isNaN(optionA.value)) {
+        nonNumber.style.display = "block";
+        return "fail: not a number";
+    }
     if (optionA.value < 8) {
         lengthFail.style.display = "block";
         return "fail: password too short";
@@ -96,6 +109,7 @@ submit.addEventListener('click', function () {
         lengthFail.style.display = "block";
         return "fail: too short";
     }
+
     pSize.push(optionA.value);
     option1.style.display = "none";
     option2.style.display = "flex";
