@@ -118,10 +118,9 @@ button[disabled] {
   overflow: hidden;
 }
 
-/* CHANGES (lines 121 - 238) to make the choices appear on the page, etc. couldn't consolidate options tags  */
+/* CHANGES (lines 121 - 254) to make the choices hidden on page until generate button is clicked, etc. */
 .errors {
   margin-top: 25px;
-
 }
 
 #graphic {
@@ -136,7 +135,11 @@ button[disabled] {
   display: none;
 }
 
-.amount {
+.amount,
+.options,
+.options2,
+.options3,
+.options4  {
   display: none;
   flex-direction: row;
   justify-content: center;
@@ -144,39 +147,7 @@ button[disabled] {
   margin-top: 30px;
   transition: 0.5s;
 }
-.options {
-  display: none;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: 30px;
-  transition: 0.5s;
-}
-.options2 {
-  display: none;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: 30px;
-  transition: 0.5s;
-}
-.options3 {
-    display: none;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    transition: 0.5s;
-}
-.options4 {
-    display: none;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    transition: 0.5s;
-}
-
+ 
 #ok1 {
     display: none;
 }
@@ -254,7 +225,7 @@ input[type="radio"]{
   }
 
 
-/* Some changes made to make layout better on smaller screens */
+/* Some changes below were made to make layout better on smaller screens */
 
 @media (max-width: 800px) {
   .btn {
@@ -279,7 +250,7 @@ input[type="radio"]{
   .options3,
   .options4,
   .amount,
-  #plength,
+  #pass-length,
   .amount .choose span,
   .options .choose span,
   .options2 .choose span,
