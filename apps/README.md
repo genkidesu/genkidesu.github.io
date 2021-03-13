@@ -10,6 +10,6 @@ https://genkidesu.github.io/apps/passwordgen.html
 
 # Mock Up:
 
-![Screen-capture of the site:](./assets/images/sitepicture.png)
+![Screen-capture of the site:](./assets/images/passwordgen.png)
 
 
