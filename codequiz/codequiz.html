@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body>
+    <div class="main-container">
+        <header>
+            <h1>Code Quiz</h1>
+        </header>
+
+        <div class="question-area">
+            <div class="question">
+                <p>Question here</p>
+            </div>
+            <div class="time-remaining">
+                timer
+            </div>
+        </div>
+        <div class="answers" id="ok">
+            <p> answers here</p>
+            <button id="a1" class="ans-buttons">text</button>
+            <button id="a2" class="ans-buttons">text2</button>
+            <button id="a3" class="ans-buttons">text3</button>
+            <button id="a4" class="ans-buttons">text4</button>
+        </div>
+        <div class="result">
+            ...
+        </div>
+        <div class="controls">
+            <button id="start" class="btn">Start Quiz</button>
+        </div>
+        <div class="results-area">
+            <li>Your score: <span id="you">c</span> out of 10</li>
+            <li>Time taken: <span id="time">d </span> seconds</li>
+        </div>
+        <div class="high-scores">
+            <div class="rows">
+                <div class="p-name">
+                    <li>Name</li>
+                </div>
+                <div id="score" class="p-score">
+                    <li>Score</li>
+                </div>
+                <div id="timing" class="p-time">
+                    <li>Time</li>
+                </div>
+            </div>
+        </div>
+
+        <div class="addScore">
+            <li>Enter Name: <input type="text" placeholder="type..." class="input" id="input"></li>
+            <li><button id="add-score">Add</button></li>
+        </div>
+        <div class="clearScores">
+            <li><button id="del-score">Clear High Scores</button></li>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
