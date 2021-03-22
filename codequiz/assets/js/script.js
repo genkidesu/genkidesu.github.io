@@ -15,34 +15,19 @@ let yourTime = document.querySelector("#time");
 let addScore = document.querySelector("#add-score");
 let delScore = document.querySelector("#del-score");
 let input = document.querySelector("#input");
-let savedName = document.querySelector(".p-name");
-let savedScore = document.querySelector(".p-score");
-let savedTime = document.querySelector(".p-time");
-let rows = document.querySelector(".rows");
+let rows = document.getElementById("tbod");
 let hsTable = document.querySelector(".high-scores");
 let endControls = document.querySelector(".controls1");
 let otControls = document.querySelector(".controls");
 let leaderboard = document.querySelector(".leaderboard");
 
-
+// these variables are used to decide what to do next and also to display scores, etc. 
 let sessionScore = 0;
 let sessionTime = 0;
 let highScores = {};
 let currentQ = '';
 let count = 0;
 let status = '';
-
-
-
-question.innerText = "";
-answer4.innerText = "yo";
-yourScore.innerText = "hey"
-
-let savedScores = [{ name: '-', score: '-', time: '-' }];
-let newA = [];
-let combo = [];
-
-
 
 //these are the questions and answers 
 let questions = [{
@@ -74,9 +59,78 @@ let questions = [{
         d: 'it shows text in place of an image if image cannot be displayed'
     },
     correct: 'a4'
+},
+{
+    quest: "What is the function to insert a value to the beginning of an array?",
+    answers: {
+        a: '.pop()',
+        b: '.unshift()',
+        c: '.push()',
+        d: '.slice()'
+    },
+    correct: 'a2'
+},
+{
+    quest: "Why would you want to use a .map function?",
+    answers: {
+        a: 'to gather data from an array',
+        b: 'to copy code from another site',
+        c: 'to check that your code layout is logical',
+        d: 'to make a copy of an array and/or apply changes to each value'
+    },
+    correct: 'a4'
+},
+{
+    quest: "What is the order of priority for CSS selectors? (highest priority to lowest)",
+    answers: {
+        a: 'Top to Bottom, Class, Element, ID',
+        b: 'Bottom to Top, ID, Class, Element',
+        c: 'ID, Class, Top to Bottom, Element',
+        d: 'Bottom to Top, Element, Class, ID'
+    },
+    correct: 'a2'
+},
+{
+    quest: "If you use a splice function on an array what are you trying to do?",
+    answers: {
+        a: 'split it into parts',
+        b: 'delete every second item',
+        c: 'remove and/or add items at a specific position ',
+        d: 'join 2 arrays together'
+    },
+    correct: 'a3'
+},
+{
+    quest: "How do you access a specific Object key?",
+    answers: {
+        a: 'object(key)',
+        b: 'object.key',
+        c: 'object[key]',
+        d: 'key.object'
+    },
+    correct: 'a2'
+},
+{
+    quest: "What is jQuery?",
+    answers: {
+        a: 'a tool for debugging javascript',
+        b: 'a function for executing queries on javascript objects',
+        c: 'a tool for converting javascript to java',
+        d: 'a library which is used to make executing javascript functions easier'
+    },
+    correct: 'a4'
+},
+{
+    quest: "What is a call back function?",
+    answers: {
+        a: 'a function passed as an argument to another function',
+        b: 'a function that is used over and over',
+        c: 'a function from the past being recycled',
+        d: 'a function that causes an eternal loop'
+    },
+    correct: 'a1'
 }
 ];
-
 
 
 //inital timer value and function to display it as mm:ss
@@ -111,11 +165,10 @@ function countDown() {
             a--;
             sessionTime++;
             timer.innerHTML = aFormatted();
-            console.log(a)
         }
         else {
-            console.log("done");
             clearInterval(inner);
+            results();
         }
     }, 1000)
 }
@@ -134,7 +187,6 @@ function nextQ() {
         count++
     }
     else {
-        console.log("arrived");
         results();
     }
 };
@@ -152,12 +204,10 @@ ansbuttons.forEach(function (buttn) {
             result.innerText = '...correct';
             result.style.color = 'green';
             result.style["font-weight"] = 'bold';
-            console.log('correct');
         } else {
             result.innerText = '...wrong';
             result.style.color = 'red';
             result.style["font-weight"] = 'bold';
-            console.log('wong');
         }
         setTimeout(function () {
             result.style.color = 'white'
@@ -179,7 +229,6 @@ function results() {
     hsTable.style.display = "flex";
     endControls.style.display = "flex";
     delScore.style.display = "block";
-
 };
 
 //creates new player record
@@ -190,35 +239,49 @@ function NewPlayer(names, score, time) {
 }
 
 
-//this function saves the result to local storage
+//this function saves the result to local storage and updates the high score table on the screen
 addScore.addEventListener('click', function () {
     var newScore = new NewPlayer(input.value, sessionScore, sessionTime);
     retrievedScores.push(newScore);
     localStorage.setItem('player', JSON.stringify(retrievedScores));
-
-})
-
-//this function returns the saved high scores from local storage. how to stop this triggering until first add?
-let retrievedScores = JSON.parse(localStorage.getItem("player")) || []
-for (let i = 0; i < retrievedScores.length; i++) {
-    let tro = rows.insertRow(1);
+    let tro = rows.insertRow(0);
     let nam = document.createElement('td');
     let sco = document.createElement('td');
     let tim = document.createElement('td');
+    nam.innerText = input.value;
+    sco.innerText = sessionScore;
+    tim.innerText = sessionTime;
+    tro.appendChild(nam);
+    tro.appendChild(sco);
+    tro.appendChild(tim);
+})
+
+//this function returns the saved high scores from local storage. 
+let retrievedScores =
+    JSON.parse(localStorage.getItem("player")) || []
+for (let i = 0; i < retrievedScores.length; i++) {
+
+    let tro = rows.insertRow(0);
+    let nam = document.createElement('td');
+    let sco = document.createElement('td');
+    let tim = document.createElement('td');
+
     nam.innerText = retrievedScores[i].name;
     sco.innerText = retrievedScores[i].score;
     tim.innerText = retrievedScores[i].time;
+
     tro.appendChild(nam)
     tro.appendChild(sco)
     tro.appendChild(tim);
 }
 
-
 //this function clears the high scores from local storage. 
 delScore.addEventListener('click', function () {
     localStorage.removeItem('player');
+    window.location.reload();
 })
 
+//this function displays the high scores list.
 leaderboard.addEventListener('click', function () {
     hsTable.style.display = "flex";
     questionArea.style.display = "none";
@@ -226,3 +289,4 @@ leaderboard.addEventListener('click', function () {
     delScore.style.display = "block";
     start.style.display = "block";
 })
+

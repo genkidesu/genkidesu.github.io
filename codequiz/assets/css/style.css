@@ -1,9 +1,9 @@
-
 .main-container {
     margin-top: 30px;
     text-align: center;
 }
 
+/* set global font */
 .main-container,
 .ans-buttons,
 .btn {
@@ -22,6 +22,7 @@ a:hover {
     text-decoration: underline;
 }
 
+/* global container */
 .superMain-container {
     display: flex;
     flex-direction: column;
@@ -33,6 +34,7 @@ a:hover {
     width: 80%;
 }
 
+/* items at the top, highscore link, timer */
 .top {
     display: flex;
     flex-direction: row;
@@ -47,9 +49,16 @@ a:hover {
 h1 {
     font-family: ubuntu, Arial, Helvetica, sans-serif;
     align-self: left;
+    margin-bottom: 30px;
 }
 
-.btn {
+h2 {
+    margin-bottom: 40px;
+}
+
+/* global button standard styling */
+.btn,
+#del-score {
     border: 1px;
     border-style: solid;
     border-radius: 4px;
@@ -67,10 +76,12 @@ h1 {
     margin-top: 10px;
 }
 
+/* area where the question will appear */
 .question-area {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-bottom: 20px;
     
 }
 
@@ -80,6 +91,7 @@ h1 {
     
 }
 
+/* specific styling for the answer area and answer buttons */
 .answers {
     display: none;
     flex-direction: column;
@@ -103,8 +115,6 @@ h1 {
     line-height: 1.3rem;
     border-style: none;
     margin: 7px;
-
-
 }
 
 .ans-buttons:hover {
@@ -112,8 +122,6 @@ h1 {
     border-style: solid;     
     padding: 4px 3px 4px 5px;
     border-width: 1px 0px 1px 0px;
-
-
 }
 
 #a1,
@@ -123,6 +131,7 @@ h1 {
     outline: none;
 }
 
+/* style for the results display area */
 .results-area {
     display: none;
     flex-direction: row;
@@ -138,16 +147,19 @@ h1 {
     line-height: 30px;
 }
 
+/* name input area style */
 .input:focus {
     outline: none;
 }
+
 .input {
     border-width: 0px 0px 1px 0px;
     border-style: solid;
     border-color: rgb(218, 215, 215);          
     padding: 10px 15px 10px;
     margin: 0px 0px 0px 10px;
-}  
+}
+
 .input:hover {
     border-width: 0px 0px 1px 0px;
     border-color: rgb(0, 0, 0);
@@ -156,13 +168,15 @@ h1 {
 
 }
 
+/* high score area style */
 .high-scores {
-    font-family: ubuntu, arial;
     display: none;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 30px;
 }
 
+/* style for the add or remove buttons */
 .controls {
     display: flex;
     flex-direction: row;
@@ -188,13 +202,14 @@ h1 {
 }
 
 #start {
-    background-color: rgb(11, 201, 43);
+    background-color: rgb(0, 119, 255);
 }
 
 .hs-buttons {
     margin-top: 30px;
 }
 
+/* style for the table of high scores */
 table {
     width: 58%;
     text-align: center;
@@ -203,41 +218,29 @@ table {
 table tr:nth-child(odd) {
     background-color: #00000027;
 }
-table tr:first-child {
-    background-color: #000000;
+table #tbod tr:first-child {
+    background-color: gold;
     font-weight: bold;
-    color: white;
 }
+
+table thead {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
 tr {
     line-height: 30px;
 }
 
-#p-name li,
-#p-score li,
-#p-time li {
-    border-color: grey;
-    border-width: 0px 0px 1px 0px;
-    border-style: solid;
-    padding-right: 10px;
+#del-score {
+    display: none;
+    color: white;
+    background-color: rgb(0, 0, 0);
 }
 
-
-
-#del-score {
-    border: 0px;
-    border-style: solid;
-    display: none;
-    border-radius: 4px;
-    font-weight: bold;
-    color: white;
-    font-family: ubuntu, arial,sans-serif;
-    font-size: 14px;
-    padding: 0 16px;
-    line-height: 12px;
-    height: 31px;
-    text-align: center;
-    cursor: pointer;
-    user-select: none;
-    margin: 10px 0px 0px 10px;
-    background-color: rgb(0, 0, 0);
+@media screen and (max-width: 575px) {
+    #add-score {
+        margin-top: 20px;
+    }
 }

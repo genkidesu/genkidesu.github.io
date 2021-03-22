@@ -13,7 +13,6 @@
 
 <body>
     <container class="superMain-container">
-
         <div class="main-container">
             <div class="top">
                 <div class="leaderboard"><a href="#leaderboard">High Scores</a>
@@ -26,7 +25,7 @@
                 <h1>CODE QUIZ</h1>
 
             </header>
-
+            <!-- appears when quix is started -->
             <div class="question-area">
                 <div class="question">
                     <p></p>
@@ -34,7 +33,6 @@
 
             </div>
             <div class="answers" id="ok">
-
                 <button id="a1" class="ans-buttons">text</button>
                 <button id="a2" class="ans-buttons">text2</button>
                 <button id="a3" class="ans-buttons">text3</button>
@@ -43,43 +41,39 @@
                 </div>
             </div>
 
-
+            <!-- appears when quiz is finished or when high score link is clicked. -->
             <div class="results-area">
                 <li>Your scored <span id="you">c</span> out of 10 and finished in <span id="time">d </span> seconds</li>
             </div>
             <div class="high-scores" id="leaderboard">
                 <h2>High Scores</h2>
                 <table class="rows">
-                    <tr>
-                        <td>Name</td>
-                        <td>Score</td>
-                        <td>Time</td>
-                    </tr>
+                    <thead>
+                        <th>Name</th>
+                        <th>Score</th>
+                        <th>Time</th>
+                    </thead>
+                    <tbody id="tbod">
+
+                    </tbody>
+
 
                 </table>
 
             </div>
+            <!-- these buttons allow to save score, clear score, or start new quiz -->
             <div class="controls1">
                 <div class="addScore">
                     <li><span id="entry">Enter Name : <input type="text" class="input" id="input">
                             <button id="add-score" class="btn">Save score</button></li>
-
-
                     </span>
-
-
                 </div>
-
             </div>
             <div class="controls">
                 <li> <button id="start" class="btn">>>> Start New Quiz</button> </li>
                 <li> <button id="del-score">Clear Scores</button> </li>
             </div>
         </div>
-
-
-
-
         </div>
     </container>
 
