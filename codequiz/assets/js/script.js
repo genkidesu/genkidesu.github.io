@@ -19,6 +19,11 @@ let savedName = document.querySelector(".p-name");
 let savedScore = document.querySelector(".p-score");
 let savedTime = document.querySelector(".p-time");
 let rows = document.querySelector(".rows");
+let hsTable = document.querySelector(".high-scores");
+let endControls = document.querySelector(".controls1");
+let otControls = document.querySelector(".controls");
+let leaderboard = document.querySelector(".leaderboard");
+
 
 let sessionScore = 0;
 let sessionTime = 0;
@@ -96,7 +101,10 @@ function countDown() {
     start.style.display = "none";
     answers.style.display = "flex";
     endResults.style.display = "none";
+    hsTable.style.display = "none";
+    endControls.style.display = "none";
     questionArea.style.display = "flex";
+    delScore.style.display = "none";
     nextQ();
     let inner = setInterval(function () {
         if (a > 0 && status !== 'complete') {
@@ -141,12 +149,14 @@ ansbuttons.forEach(function (buttn) {
         let ans = this.id;
         if (ans == currentQ) {
             sessionScore++;
-            result.innerText = 'correct';
-            result.style.color = 'green'
+            result.innerText = '...correct';
+            result.style.color = 'green';
+            result.style["font-weight"] = 'bold';
             console.log('correct');
         } else {
-            result.innerText = 'wrong';
-            result.style.color = 'red'
+            result.innerText = '...wrong';
+            result.style.color = 'red';
+            result.style["font-weight"] = 'bold';
             console.log('wong');
         }
         setTimeout(function () {
@@ -166,6 +176,10 @@ function results() {
     yourTime.innerText = sessionTime;
     status = 'complete';
     start.style.display = "block";
+    hsTable.style.display = "flex";
+    endControls.style.display = "flex";
+    delScore.style.display = "block";
+
 };
 
 //creates new player record
@@ -181,6 +195,7 @@ addScore.addEventListener('click', function () {
     var newScore = new NewPlayer(input.value, sessionScore, sessionTime);
     retrievedScores.push(newScore);
     localStorage.setItem('player', JSON.stringify(retrievedScores));
+
 })
 
 //this function returns the saved high scores from local storage. how to stop this triggering until first add?
@@ -204,4 +219,10 @@ delScore.addEventListener('click', function () {
     localStorage.removeItem('player');
 })
 
-
+leaderboard.addEventListener('click', function () {
+    hsTable.style.display = "flex";
+    questionArea.style.display = "none";
+    answers.style.display = "none";
+    delScore.style.display = "block";
+    start.style.display = "block";
+})

@@ -1,5 +1,7 @@
+
 .main-container {
-    margin-top: 50px;
+    margin-top: 30px;
+    text-align: center;
 }
 
 .main-container,
@@ -12,11 +14,17 @@ li {
     list-style-type: none;
 }
 
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 .superMain-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-
 }
 
 .main-container {
@@ -25,17 +33,14 @@ li {
     width: 80%;
 }
 
-.time-remaining {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    font-size: 14px;
+.top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
-.leaderboard {    
-    position: absolute;
-    left: 20px;
-    top: 20px;
+.leaderboard,
+.time-remaining {    
     font-size: 14px;
 }
 
@@ -44,7 +49,6 @@ h1 {
     align-self: left;
 }
 
-#start,
 .btn {
     border: 1px;
     border-style: solid;
@@ -66,17 +70,23 @@ h1 {
 .question-area {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    
 }
 
 .question {
-    background-color: azure;
+    border-width: 0px 0px 2px 0px;
+    border-style: solid;
+    
 }
 
 .answers {
-    display: flex;
+    display: none;
     flex-direction: column;
+    align-items: center;
     border-style: solid;
-    border-width: 0px 0px 0px 1px;
+    margin: 1% 0% 0% 0%;
+    border-width: 0px 0px 0px 0px;
     border-color: rgb(0, 119, 255);
     padding: 20px;
 
@@ -84,7 +94,8 @@ h1 {
 
 .ans-buttons {
     width: 60%;
-    background-color:  rgb(0, 119, 255);
+    max-width: 300px;
+    background-color:  rgba(0, 119, 255, 0.718);
     border-radius: 5px;
     color: white;
     text-align: left;
@@ -97,11 +108,11 @@ h1 {
 }
 
 .ans-buttons:hover {
-    border-width: 1px 0px 1px 0px;
-    border-color: rgb(218, 215, 215);
+    background-color:  rgb(0, 119, 255);
     border-style: solid;     
     padding: 4px 3px 4px 5px;
-    box-shadow: 0px 0px 1px 1px rgba(0, 217, 255, 0.747);
+    border-width: 1px 0px 1px 0px;
+
 
 }
 
@@ -115,7 +126,12 @@ h1 {
 .results-area {
     display: none;
     flex-direction: row;
+    justify-content: center;
     
+}
+
+.result {
+    margin: 5px 0px 0px 10px;
 }
 
 .option {
@@ -142,12 +158,45 @@ h1 {
 
 .high-scores {
     font-family: ubuntu, arial;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.controls {
     display: flex;
     flex-direction: row;
+    margin-left: 27px;
+    margin-top: 35px;
+    justify-content: center ;
+    
+}
+
+.controls1 {
+    display: none;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-left: 27px;
+    align-items: center;
+}
+
+#add-score {
+    background-color: rgb(0, 0, 0) ;
+    margin: 2px 0px 0px 10px;
+    border-width: 1px;
+    border-style: solid;
+}
+
+#start {
+    background-color: rgb(11, 201, 43);
+}
+
+.hs-buttons {
+    margin-top: 30px;
 }
 
 table {
-    width: 100%;
+    width: 58%;
     text-align: center;
 }
 
@@ -155,9 +204,13 @@ table tr:nth-child(odd) {
     background-color: #00000027;
 }
 table tr:first-child {
-    background-color: #abdcff;
+    background-color: #000000;
+    font-weight: bold;
+    color: white;
 }
-
+tr {
+    line-height: 30px;
+}
 
 #p-name li,
 #p-score li,
@@ -168,11 +221,23 @@ table tr:first-child {
     padding-right: 10px;
 }
 
-.addScore {
-    margin-top: 20px;
-}
+
 
 #del-score {
-    background-color: rgb(255, 42, 42);
-
+    border: 0px;
+    border-style: solid;
+    display: none;
+    border-radius: 4px;
+    font-weight: bold;
+    color: white;
+    font-family: ubuntu, arial,sans-serif;
+    font-size: 14px;
+    padding: 0 16px;
+    line-height: 12px;
+    height: 31px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    margin: 10px 0px 0px 10px;
+    background-color: rgb(0, 0, 0);
 }
