@@ -1,10 +1,66 @@
+.main-container {
+    margin-top: 50px;
+}
+
+.main-container,
+.ans-buttons,
+.btn {
+    font-family: ubuntu, Arial, Helvetica, sans-serif;   
+}
+
 li {
     list-style-type: none;
+}
+
+.superMain-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 .main-container {
     display: flex;
     flex-direction: column;
+    width: 80%;
+}
+
+.time-remaining {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 14px;
+}
+
+.leaderboard {    
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    font-size: 14px;
+}
+
+h1 {
+    font-family: ubuntu, Arial, Helvetica, sans-serif;
+    align-self: left;
+}
+
+#start,
+.btn {
+    border: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    font-weight: bold;
+    color: white;
+    font-family: ubuntu, arial,sans-serif;
+    background-color: rgb(15, 127, 255);
+    font-size: 14px;
+    padding: 0 16px;
+    line-height: 12px;
+    height: 31px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    margin-top: 10px;
 }
 
 .question-area {
@@ -19,18 +75,41 @@ li {
 .answers {
     display: flex;
     flex-direction: column;
+    border-style: solid;
+    border-width: 0px 0px 0px 1px;
+    border-color: rgb(0, 119, 255);
+    padding: 20px;
+
 }
 
 .ans-buttons {
-    max-width: 200px;
-    background-color: rgba(127, 252, 252, 0.781);
+    width: 60%;
+    background-color:  rgb(0, 119, 255);
+    border-radius: 5px;
+    color: white;
+    text-align: left;
+    padding: 5px;
+    line-height: 1.3rem;
+    border-style: none;
+    margin: 7px;
+
+
+}
+
+.ans-buttons:hover {
+    border-width: 1px 0px 1px 0px;
+    border-color: rgb(218, 215, 215);
+    border-style: solid;     
+    padding: 4px 3px 4px 5px;
+    box-shadow: 0px 0px 1px 1px rgba(0, 217, 255, 0.747);
+
 }
 
 #a1,
 #a2,
 #a3,
 #a4 {
-    border-radius: 2px;
+    outline: none;
 }
 
 .results-area {
@@ -39,29 +118,61 @@ li {
     
 }
 
-.rows {
-    display: flex;
-    flex-direction: row;
+.option {
+    line-height: 30px;
 }
 
 .input:focus {
     outline: none;
 }
 .input {
-    border-width: 1px;
+    border-width: 0px 0px 1px 0px;
     border-style: solid;
     border-color: rgb(218, 215, 215);          
     padding: 10px 15px 10px;
+    margin: 0px 0px 0px 10px;
 }  
 .input:hover {
-    border-width: 1px 1px 1px 1px;
-    border-color: rgb(218, 215, 215);
-    border-style:solid;
+    border-width: 0px 0px 1px 0px;
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
     padding: 10px 15px 10px;       
-    box-shadow: 0px 0px 3.5px 3.5px rgb(218, 215, 215, 0.5);
+
 }
 
 .high-scores {
+    font-family: ubuntu, arial;
     display: flex;
     flex-direction: row;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+}
+
+table tr:nth-child(odd) {
+    background-color: #00000027;
+}
+table tr:first-child {
+    background-color: #abdcff;
+}
+
+
+#p-name li,
+#p-score li,
+#p-time li {
+    border-color: grey;
+    border-width: 0px 0px 1px 0px;
+    border-style: solid;
+    padding-right: 10px;
+}
+
+.addScore {
+    margin-top: 20px;
+}
+
+#del-score {
+    background-color: rgb(255, 42, 42);
+
 }

@@ -1,5 +1,5 @@
 let start = document.querySelector("#start");
-let timer = document.querySelector(".time-remaining");
+let timer = document.querySelector(".time-left");
 let question = document.querySelector(".question p");
 let answers = document.querySelector("#ok");
 let ansbuttons = document.querySelectorAll(".ans-buttons");
@@ -18,6 +18,7 @@ let input = document.querySelector("#input");
 let savedName = document.querySelector(".p-name");
 let savedScore = document.querySelector(".p-score");
 let savedTime = document.querySelector(".p-time");
+let rows = document.querySelector(".rows");
 
 let sessionScore = 0;
 let sessionTime = 0;
@@ -26,11 +27,16 @@ let currentQ = '';
 let count = 0;
 let status = '';
 
+
+
 question.innerText = "";
 answer4.innerText = "yo";
 yourScore.innerText = "hey"
 
-let savedScores = [];
+let savedScores = [{ name: '-', score: '-', time: '-' }];
+let newA = [];
+let combo = [];
+
 
 
 //these are the questions and answers 
@@ -136,13 +142,15 @@ ansbuttons.forEach(function (buttn) {
         if (ans == currentQ) {
             sessionScore++;
             result.innerText = 'correct';
+            result.style.color = 'green'
             console.log('correct');
         } else {
             result.innerText = 'wrong';
+            result.style.color = 'red'
             console.log('wong');
         }
         setTimeout(function () {
-            result.innerText = '';
+            result.style.color = 'white'
         }, 1250);
         nextQ();
     })
@@ -160,36 +168,40 @@ function results() {
     start.style.display = "block";
 };
 
+//creates new player record
+function NewPlayer(names, score, time) {
+    this.name = names;
+    this.score = score;
+    this.time = time;
+}
+
+
 //this function saves the result to local storage
 addScore.addEventListener('click', function () {
-    let newPlayer = {
-        name: input.value,
-        score: sessionScore,
-        time: sessionTime
-    }
-    savedScores.push(newPlayer);
-    localStorage.setItem('player', JSON.stringify(savedScores));
+    var newScore = new NewPlayer(input.value, sessionScore, sessionTime);
+    retrievedScores.push(newScore);
+    localStorage.setItem('player', JSON.stringify(retrievedScores));
 })
 
-//this function returns the saved high scores from local storage.
-let retrievedScores = JSON.parse(localStorage.getItem('player'));
-retrievedScores.forEach(function (val) {
-    let nam = document.createElement('li');
-    let sco = document.createElement('li');
-    let tim = document.createElement('li');
-    nam.innerText = val.name;
-    sco.innerText = val.score;
-    tim.innerText = val.time;
-    savedName.appendChild(nam);
-    savedScore.appendChild(sco);
-    savedTime.appendChild(tim);
-
-})
+//this function returns the saved high scores from local storage. how to stop this triggering until first add?
+let retrievedScores = JSON.parse(localStorage.getItem("player")) || []
+for (let i = 0; i < retrievedScores.length; i++) {
+    let tro = rows.insertRow(1);
+    let nam = document.createElement('td');
+    let sco = document.createElement('td');
+    let tim = document.createElement('td');
+    nam.innerText = retrievedScores[i].name;
+    sco.innerText = retrievedScores[i].score;
+    tim.innerText = retrievedScores[i].time;
+    tro.appendChild(nam)
+    tro.appendChild(sco)
+    tro.appendChild(tim);
+}
 
 
 //this function clears the high scores from local storage. 
 delScore.addEventListener('click', function () {
     localStorage.removeItem('player');
-    window.location.reload(true);
 })
+
 
