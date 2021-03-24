@@ -1,10 +1,11 @@
 let current = document.querySelector("#current-time");
-// let inputs = document.querySelectorAll(".entry");
+let timeSlots = document.getElementsByTagName("tr");
 let inputs = '';
 let buttons = '';
 let time = '';
 
-rightNow = moment().format('MM/DD/YYYY');
+date = moment().format('MM/DD/YYYY');
+hour = moment().format('HH');
 
 // function to keep calling the current time function each second
 function currentTime() {
@@ -17,66 +18,17 @@ function currentTime() {
 
 currentTime();
 
-savedActivities = [
-    {
-        slot: 8,
-        activities: '',
-        completed: false
-    },
-    {
-        slot: 9,
-        activities: '',
-        completed: true
-    },
-    {
-        slot: 10,
-        activities: '',
-        completed: false
-    },
-    {
-        slot: 11,
-        activities: '',
-        completed: false
-    },
-    {
-        slot: 12,
-        activities: '',
-        completed: false
-    },
-    {
-        slot: 13,
-        activities: '',
-        completed: false
-    },
-    {
-        slot: 14,
-        activities: '',
-        completed: false
-    },
-    {
-        slot: 15,
-        activities: '',
-        completed: false
-    },
-    {
-        slot: 16,
-        activities: '',
-        completed: false
-    }
-]
-
 // display calendar
 let rows = document.getElementById("tbod");
 
 function tableMake() {
-    for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < 16; i++) {
         let ok = i + 8;
-        let ok1 = i + 9;
         let start = " " + ok.toString() + ":00";
-        let end = " " + ok1.toString() + ":00";
 
-        startTime = (moment(rightNow + start)).format('h A')
-        endTime = (moment(rightNow + end)).format('h A')
+
+        startTime = (moment(date + start)).format('h A')
+
 
         let tro = rows.insertRow(i);
         let timeBlock = document.createElement('td');
@@ -91,7 +43,7 @@ function tableMake() {
         activities.className = "activities";
         activities.appendChild(entry);
         saveButton.innerText = "Save";
-        timeBlock.innerText = startTime + ' - ' + endTime;
+        timeBlock.innerText = startTime;
         timeBlock.className = "slots";
         try {
             entry.value = savedActivities[i].activities;
@@ -110,6 +62,7 @@ function tableMake() {
 
     }
     inputs = document.querySelectorAll(".entry");
+    currentSlot()
     // buttons = document.getElementsByClassName("saveItem");
     // time = document.getElementsByClassName('slots');
 }
@@ -144,13 +97,34 @@ $(document).on('click', '.saveItem', function () {
         localStorage.setItem("dayplan", JSON.stringify(saved))
     }
     catch (e) {
-        console.log('path2')
-        saved.push({ slot: timeS, activities: item });
+        console.log('path2');
+        for (let i = 0; i < 16; i++) {
+            saved.push({ slot: i, activities: "" });
+        };
+        saved[timeS].activities = item;
         localStorage.setItem("dayplan", JSON.stringify(saved))
     }
 })
 
+function currentSlot() {
+    for (let i = 1; i < timeSlots.length; i++) {
+        if ((parseInt(timeSlots[i].getAttribute('id')) + 8) > hour) {
+            timeSlots[i].className = "future";
+            console.log("future");
+        } else if ((parseInt(timeSlots[i].getAttribute('id')) + 8) < hour) {
+            timeSlots[i].className = "past";
+            console.log("past");
+        } else {
+            timeSlots[i].className = "present";
+            console.log("preset");
+        }
+    }
+}
 
+//ensures the currently highlighted slot stays up to date.
+let refresh = setInterval(function () {
+    currentSlot();
+}, 60000);
 
 var d = new Date();
 var n = d.getHours();
