@@ -127,7 +127,8 @@ try {
 }
 catch (e) {
     console.log('there are no activities to display yet');
-    localStorage.setItem("dayplan", "[]")
+    localStorage.setItem("dayplan", "[]");
+    location.reload();
 }
 finally {
     console.log("arrived");
