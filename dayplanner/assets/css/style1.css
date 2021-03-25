@@ -2,28 +2,40 @@
 --bluish: #008686;
 --blue: #0AC2FF;
 --fadedBlue: #0ac2ff41;
---goldish: #f2e456;
---dark: rgba(0, 0, 0, 0.692);
+--goldish:#48eaff;
+--dark:#2A2C2B;
 --green: #3DAC6E;
 --fadedGrey: rgb(223, 223, 223);
---color1 : #ffffff;
---color2 : #ab4321;
---color3 : #0cc567;
+--color1 : #38928B;
+--color2 : #feffc3;
+--color3 : #f3f3e9;
+--color4 : #2A2C2B;
 }
 
 body {
     font-family: ubuntu, arial;
+    margin: 0;
 }
 
-.superMain-container {
+.superMain-container,
+.header-area {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#current-time {
+.header-area {
+    background-color: var(--color4);
+    width: 100%;
     margin-bottom: 30px;
+    color: white;
+}
+
+
+#current-time {
+    margin: 20px 0px 30px 0px;
     font-size: 1.5rem;
+
 }
 
 .table-display {
@@ -31,6 +43,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: left;
+    margin-bottom: 100px;
 }
 
 .today {
@@ -40,19 +53,20 @@ body {
 
 th {
     padding: 15px 0px 15px 5px;
-    background-color: var(--bluish);
-    color: #ffff;    
+    background-color: var(--color4);
+    color: #ffff;
+    height: 50px;    
 }
 
-
-
 th:first-child {
-    width: 10%;
+    width: 15%;
     border-style: dashed;
     border-width: 0px 1px 0px 0px; 
 }
 
 th:nth-child(3) {
+    width: 15%;
+    text-align: center;
     border-style: dashed;
     border-width: 0px 0px 0px 1px;
 }
@@ -68,11 +82,12 @@ td:nth-child(1) {
 }
 
 td:nth-child(3) {
-    width: 10%;
+    width: 15%;
     text-align: center;
     border-style: solid;
     border-color: white;
-    border-width: 0px 0px 0px 1px;    
+    border-width: 0px 0px 0px 1px;   
+
 }
 
 tr {
@@ -83,26 +98,24 @@ tr {
 }
 
 .past {
-    background-color: var(--fadedGrey);
+    background-color: var(--color3);
 }
 
 .present {
     background-color: var(--goldish);
-    border-color: var(--goldish);
-    border-width: 10px;
-    border-style: solid;
+    border-color: var(--dark);
+    border-width: 1px;
+    border-style: dotted;
     text-decoration: underline;
     text-emphasis: bold;
 }
 
 .future {
-    background-color: var(--bluish);
+    background-color: var(--color2);
 }
-
 
 td {
     padding-left: 5px;
-
 }
 
 .entry {
@@ -114,17 +127,31 @@ td {
     border-style: none;
     outline: none;
     font-family: ubuntu, arial; 
-    background-color: transparent;
-    
+    background-color: transparent;    
 }
 
 .saveItem {
-
-
     color: black;
-
     text-align: center;
     cursor: pointer;
     user-select: none;
+}
 
+#corner2 {
+    border: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    color: white;
+    font-family: ubuntu, arial,sans-serif;
+
+    font-weight: bold;
+    background-color: var(--color4);
+    line-height: 23px;
+    height: 40px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    width: 30%;
+    margin-top: 15px;
+    margin-left: 70%;
 }
