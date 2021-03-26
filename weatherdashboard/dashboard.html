@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <container class="superMain-container">
+
+        <header>
+            <h1>Weather Dashboard</h1>
+        </header>
+        <container class='second-container'>
+            <navbar id="search-area">
+                <div class="input-area">
+                    <input id="search"></input>
+                    <div id="search-button">
+                        dd
+                    </div>
+                </div>
+                <div id="previous-searches">
+
+                </div>
+
+
+
+            </navbar>
+            <container class='main-content'>
+                <div class="city-display">
+                    <h2 id="city-name"></h2>
+                    <li id="temp"></li>
+                    <li id="humidity"></li>
+                    <li id="windspeed"></li>
+                    <li id="uv"></li>
+                </div>
+                <div class="forecast-area">
+                    <h3 id="forecast">5-Day Forecast</h3>
+                    <div class="forecast-rows">
+                        <div class="forecast-display" id="plus1"></div>
+                        <div class="forecast-display" id="plus2"></div>
+                        <div class="forecast-display" id="plus3"></div>
+                        <div class="forecast-display" id="plus4"></div>
+                        <div class="forecast-display" id="plus5"></div>
+                    </div>
+                </div>
+            </container>
+        </container>
+
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.js"
+            integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+        <script src="./assets/js/script.js"></script>
+
+</body>
+
+</html>
