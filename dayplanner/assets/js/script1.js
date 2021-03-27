@@ -93,7 +93,7 @@ $(document).on('click', '.saveItem', function () {
         localStorage.setItem("dayplan", JSON.stringify(saved))
     }
     catch (e) {
-        console.log('First time user, creating data table');
+        console.log('New day or first time user, creating data table');
         for (let i = 0; i < 10; i++) {
             saved.push({ slot: i, activities: "" });
         };

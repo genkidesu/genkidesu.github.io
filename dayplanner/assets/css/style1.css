@@ -172,3 +172,12 @@ td {
     margin-top: 15px;
     margin-left: 70%;
 }
+
+@media  (max-width: 700px){
+    #corner2 {
+        font-size: 12px;
+        width: 50%;
+        margin-left: 50%;
+
+    }
+}
