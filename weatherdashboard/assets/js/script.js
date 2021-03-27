@@ -170,8 +170,7 @@ function addListener() {
 addListener();
 
 function refreshDiv() {
-    var past = $('#previous-searches')
-    var URL = "https://genkidesu.github.io/weatherdashboard/dashboard.html"
-    $('#previous-searches').load(document.URL + ' #previous-searches');
+
+    $("#previous-searches").load("https://genkidesu.github.io/weatherdashboard/dashboard.html", savedSearches);
 
 }

@@ -110,7 +110,6 @@ li {
 
 .city-display {
     margin-left: 35px;
-    margin-top: 64px;
 
 }
 
@@ -126,8 +125,9 @@ li {
     flex-direction: row;
     align-content: flex-start;
     min-height: 40px;
-    margin: 10px 0px;
+    margin: 1em 0em;
     padding-left: 10px;
+
 }
 
 .params {
@@ -240,7 +240,7 @@ li {
     }
     .city-display,
     .forecast-area {
-        margin: 25px;
+        margin: 25px 0px;
     }
     .params {
         font-size: 16px;
