@@ -24,7 +24,7 @@ currentTime();
 let rows = document.getElementById("tbod");
 
 function tableMake() {
-    for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < 10; i++) {
         let ok = i + 8;
         let start = " " + ok.toString() + ":00";
 
@@ -68,7 +68,7 @@ function tableMake() {
 // call the table make function
 tableMake();
 
-// handle the data being entered into the text area / local storage
+// handle the saved activity data
 let saved = JSON.parse(localStorage.getItem("dayplan"));
 try {
     for (i = 0; i < saved.length; i++) {
@@ -82,7 +82,6 @@ catch (e) {
     location.reload();
 }
 finally {
-    console.log("arrived");
 }
 
 // Configure the 'save' button to make it send the data to local storage
@@ -91,12 +90,11 @@ $(document).on('click', '.saveItem', function () {
     let item = $(this).closest('tr').children('td.activities').children('textarea').val();
     try {
         saved[timeS].activities = item;
-        console.log(saved);
         localStorage.setItem("dayplan", JSON.stringify(saved))
     }
     catch (e) {
-        console.log('path2');
-        for (let i = 0; i < 16; i++) {
+        console.log('First time user, creating data table');
+        for (let i = 0; i < 10; i++) {
             saved.push({ slot: i, activities: "" });
         };
         saved[timeS].activities = item;
@@ -109,13 +107,10 @@ function currentSlot() {
     for (let i = 1; i < timeSlots.length; i++) {
         if ((parseInt(timeSlots[i].getAttribute('id')) + 8) > hour) {
             timeSlots[i].className = "future";
-            console.log("future");
         } else if ((parseInt(timeSlots[i].getAttribute('id')) + 8) < hour) {
             timeSlots[i].className = "past";
-            console.log("past");
         } else {
             timeSlots[i].className = "present";
-            console.log("present");
         }
     }
 }
