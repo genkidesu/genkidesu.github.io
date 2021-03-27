@@ -1,5 +1,25 @@
+:root {
+--azure: rgb(0, 127, 255);
+--dark:#2A2C2B;
+--lightyellow: rgb(255, 255, 224);
+
+}
+
 body {
     font-family: ubuntu, arial;
+}
+
+
+
+h1 {
+    display: block; 
+    background-color: var(--dark);
+    color: white;
+    padding-top: 25px;
+    max-width: 1216px;
+    height: 70px;
+    padding-left: 8px;
+    
 }
 
 .second-container {
@@ -7,45 +27,37 @@ body {
     flex-direction: row;
 }
 
-.forecast-area {
-    display: flex;
-    flex-direction: column;
-}
 
-#forecast {
-    display: none;
-}
-
-.forecast-rows {
-    display: flex;
-    flex-direction: row;
-}
 
 li {
     list-style-type: none;
 }
 
+#search-area {
+    background-color: rgba(211, 211, 211, 0.295);
+    padding: 8px;
+}
+
 .input-area {
     display: flex;
     flex-direction: row;
+    margin-bottom: 10px;
 }
-
-
 
 #search {
     border-width: 1px;
     border-style: solid;
     border-color: rgb(218, 215, 215);
-    border-radius: 23px;
-    padding: 14px 23px 15px;
+    padding: 14px 21px 13px 14px;
+    margin-right: 3px;
+    border-radius: 3px;
 }
 
 #search:hover {
     border-width: 1px 1px 1px 1px;
     border-color: rgb(218, 215, 215);
     border-style:solid;
-    border-radius: 23px;
-    padding: 14px 23px 15px;       
+    padding: 14px 21px 13px 14px;       
     box-shadow: 0px 0px 3.5px 3.5px rgb(218, 215, 215, 0.5);
 }
 
@@ -54,14 +66,80 @@ li {
 }
 
 #search-button {
-    width: 30px;
-    height: 30px;
+    width: 42px;
+    height: 42px;
     border-width: 2px;
     border-style: solid;
-    border-color: blue;
+    background-image: url("../images/srcgraphic1.png");
+    border-color: rgb(0, 128, 255);
+    cursor: pointer;
+    border-radius: 3px;
 
 }
 
+#search-button:hover {
+    border-style: solid;
+    border-color: rgba(0, 128, 255, 0.432);;
+}
+
+.previous {
+    line-height: 27px;
+    height: 35px;
+    padding: 6px 0px 0px 12px;
+    border-style: solid;
+    border-width: 1px 1px 0px 1px;
+    border-color: lightgrey;
+    background-color: white;
+}
+
+.previous:first-child {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+
+.previous:last-child {
+    border-width: 1px 1px 1px 1px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.previous:hover {
+    background-color: rgb(238, 238, 238);
+}
+
+.city-display {
+    margin-left: 35px;
+    margin-top: 64px;
+
+}
+
+.border-div {
+    border-style: none;
+    border-width: 1px;
+    border-color: lightgray;
+    border-radius: 3px;
+}
+
+#city-name {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    min-height: 40px;
+    margin: 10px 0px;
+    padding-left: 10px;
+}
+
+.params {
+    margin: 25px 0px;
+    padding-left: 10px;
+}
+
+.icon {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 4px;
+}
 
 #uv {
     display: flex;
@@ -71,9 +149,10 @@ li {
 .uv-low,
 .uv-moderate,
 .uv-severe {
-    padding: 2px;
-    width: 14px;
-    height: 14px;
+    padding: 5px;
+    margin-left: 5px;
+    width: 12px;
+    height: 12px;
     border-radius: 2px;
 }
 
@@ -81,8 +160,105 @@ li {
     background-color: rgba(0, 255, 76, 0.829);
 }
 .uv-moderate {
-    background-color: rgba(255, 230, 0, 0.829);
+    background-color: rgba(248, 207, 25, 0.829);
 }
 .uv-severe {
     background-color: rgba(175, 8, 8, 0.829);
 }
+
+
+.forecast-area {
+    display: none;
+    flex-direction: column;
+    margin-left: 30px;
+    border-radius: 5px;
+}
+
+#forecast {
+    margin-left: 10px;
+}
+
+.forecast-rows {
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+    color: white;
+    justify-content: space-between;
+}
+
+/*  sep forecast divs */
+.forecast-display {
+    border-style: solid;
+    border-width: 1px;
+    border-color:  lightgrey;
+    padding: 10px;
+    margin: 0px 5px 0px 5px;
+    background-color: var(--azure);
+    border-radius: 3px;
+}
+
+/* each forcast text line */
+.forecast-line1 {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    min-height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.forecast-line2 {
+    margin: 5px 0px;
+}
+
+.icon-future {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 5px;
+}
+
+@media (max-width: 860px) {
+
+    h1, h2 {
+      font-size: 1.7rem;
+    }
+
+    .second-container {
+        flex-direction: column;
+    }
+    
+    #previous-searches {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .previous {
+        padding: 3px 5px 0px 5px;
+        border-width: 1px;
+        margin: 2px;
+        flex: 0 22%;
+    }
+    .city-display,
+    .forecast-area {
+        margin: 25px;
+    }
+    .params {
+        font-size: 16px;
+        margin: 15px 0px;
+    }
+  
+  }
+
+
+  @media (max-width: 620px) {
+    .forecast-rows {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+    .forecast-display {
+        flex: 0 25%;
+        margin: 5px;
+    }
+    
+  }

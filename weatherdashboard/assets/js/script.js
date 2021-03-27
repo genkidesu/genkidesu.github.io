@@ -6,7 +6,9 @@ let tempEl = document.querySelector('#temp');
 let humidityEl = document.querySelector('#humidity');
 let windspeedEl = document.querySelector('#windspeed');
 let ultraVEl = document.querySelector('#uv');
-let fcHeader = document.querySelector('#forecast');
+let errorEl = document.querySelector("#error-display");
+let todayEl = document.querySelector(".border-div");
+let fcHeader = document.querySelector('.forecast-area');
 let pastSearchEl = document.querySelector('#previous-searches');
 let pastSearchVal = document.getElementsByClassName('previous');
 let forecastDisplay = document.getElementsByClassName('forecast-display');
@@ -34,15 +36,21 @@ for (let i = 0; i < savedSearches.length; i++) {
 function getWeather(location) {
     let criteria = location;
     let requestURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + criteria + "&appid=9abb85e5e8b5d2bab38c26eda29213c4"
-    if (savedSearches.indexOf(criteria) == -1) {
-        savedSearches.unshift(criteria);
-        localStorage.setItem('pastSearches', JSON.stringify(savedSearches));
-    }
+
     fetch(requestURL)
         .then(function (response) {
-            return response.json();
+            if (response.status >= 200 && response.status < 300) {
+                return response.json();
+            }
+            else {
+                throw Error(response.statusText);
+            }
         })
         .then(function (data) {
+            if (savedSearches.indexOf(criteria) == -1) {
+                savedSearches.unshift(criteria);
+                localStorage.setItem('pastSearches', JSON.stringify(savedSearches));
+            }
             console.log(data);
             let city = data.city.name;
             let cTemp = Math.floor(data.list[0].main.temp - 273.15);
@@ -60,7 +68,7 @@ function getWeather(location) {
             lat = data.city.coord.lat;
             lon = data.city.coord.lon;
 
-
+            todayEl.style["border-style"] = "solid";
             cityNameEl.innerText = city + " - (" + moment(date).format('DD/MM/YYYY') + ")";
             cityNameEl.appendChild(icon);
             tempEl.innerText = "Temperature: " + cTemp + " °C";
@@ -87,26 +95,37 @@ function getWeather(location) {
                 let iconPlus = document.createElement('img');
                 iconPlus.setAttribute("src", iconPlusURL);
                 iconPlus.setAttribute("alt", "Weather Icon");
-                iconPlus.setAttribute("class", "icon");
+                iconPlus.setAttribute("class", "icon-future");
 
                 let dateEl1 = document.createElement('li');
+                let iconEl = document.createElement('li');
                 let tempEl1 = document.createElement('li');
                 let humidityEl1 = document.createElement('li');
 
                 dateEl1.innerText = moment(dayPlus).format('DD/MM/YY');
-                dateEl1.appendChild(iconPlus);
-                tempEl1.innerText = "Temperature: " + tempPlus + " °C";
+                iconEl.appendChild(iconPlus);
+                dateEl1.setAttribute("class", "forecast-line1");
+                tempEl1.setAttribute("class", "forecast-line2");
+                humidityEl1.setAttribute("class", "forecast-line2");
+                tempEl1.innerText = "Temp: " + tempPlus + " °C";
                 humidityEl1.innerText = "Humidity: " + humidityPlus + " %";
 
                 fcHeader.style.display = "flex";
                 forecastDisplay[i].appendChild(dateEl1);
+                forecastDisplay[i].appendChild(iconEl);
                 forecastDisplay[i].appendChild(tempEl1);
                 forecastDisplay[i].appendChild(humidityEl1);
             }
         })
+        .catch((error) => {
+            errorEl.style.display = "block";
+            errorEl.innerText = "Error - City not found";
+            console.log(error);
+            return 'fail'
+        })
 }
 
-// Seperate fetch to get UV - UV data no longer included in the forecast as of april 1 '21
+// Seperate fetch to get UV - UV data no longer included in the 5 day forecast as of april 1 '21
 function getUV() {
     let requestURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=9abb85e5e8b5d2bab38c26eda29213c4";
 
@@ -133,13 +152,16 @@ function getUV() {
 
 //  Calls the getWeather function when search button is clicked
 searchBtn.addEventListener('click', function () {
+    errorEl.style.display = "none";
     getWeather(searchTxt.value)
 })
 
 // Calls the getWeather function when a previous search is clicked
 function addListener() {
+
     for (let i = 0; i < pastSearchVal.length; i++) {
         pastSearchVal[i].addEventListener('click', function () {
+            errorEl.style.display = "none";
             getWeather(pastSearchVal[i].innerText);
             console.log(pastSearchVal[i].innerText);
         })

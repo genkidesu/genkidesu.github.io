@@ -22,7 +22,7 @@
                 <div class="input-area">
                     <input id="search"></input>
                     <div id="search-button">
-                        dd
+
                     </div>
                 </div>
                 <div id="previous-searches">
@@ -34,14 +34,17 @@
             </navbar>
             <container class='main-content'>
                 <div class="city-display">
-                    <h2 id="city-name"></h2>
-                    <li id="temp"></li>
-                    <li id="humidity"></li>
-                    <li id="windspeed"></li>
-                    <li id="uv"></li>
+                    <li id="error-display"></li>
+                    <div class="border-div">
+                        <h2 id="city-name"></h2>
+                        <li class="params" id="temp"></li>
+                        <li class="params" id="humidity"></li>
+                        <li class="params" id="windspeed"></li>
+                        <li class="params" id="uv"></li>
+                    </div>
                 </div>
                 <div class="forecast-area">
-                    <h3 id="forecast">5-Day Forecast</h3>
+                    <h3 id="forecast">5-Day Forecast:</h3>
                     <div class="forecast-rows">
                         <div class="forecast-display" id="plus1"></div>
                         <div class="forecast-display" id="plus2"></div>
