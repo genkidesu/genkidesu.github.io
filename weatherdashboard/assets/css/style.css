@@ -1,19 +1,21 @@
+/* saved colors which are used repeatedly */
 :root {
 --azure: rgb(0, 127, 255);
+--lightazure: rgba(0, 128, 255, 0.664);
 --dark:#2A2C2B;
+--lightdark: #2a2c2b9f;
 --lightyellow: rgb(255, 255, 224);
-
+--error: rgba(255, 0, 0, 0.61);
 }
 
+/* setting main font */
 body {
     font-family: ubuntu, arial;
 }
 
-
-
 h1 {
     display: block; 
-    background-color: var(--dark);
+    background-image: linear-gradient(to bottom right, var(--dark), var(--lightdark));
     color: white;
     padding-top: 25px;
     max-width: 1216px;
@@ -22,17 +24,17 @@ h1 {
     
 }
 
+/* contains the navbar and main content divs */
 .second-container {
     display: flex;
     flex-direction: row;
 }
 
-
-
 li {
     list-style-type: none;
 }
 
+/* the below 78 lines are buttons and input areas */
 #search-area {
     background-color: rgba(211, 211, 211, 0.295);
     padding: 8px;
@@ -61,7 +63,8 @@ li {
     box-shadow: 0px 0px 3.5px 3.5px rgb(218, 215, 215, 0.5);
 }
 
-#search:focus {
+#search:focus,
+#clear-srch:focus {
     outline: none;    
 }
 
@@ -74,7 +77,6 @@ li {
     border-color: rgb(0, 128, 255);
     cursor: pointer;
     border-radius: 3px;
-
 }
 
 #search-button:hover {
@@ -82,6 +84,35 @@ li {
     border-color: rgba(0, 128, 255, 0.432);;
 }
 
+#clear-srch {
+    width: 255px;
+    height: 42px;
+    font-family: ubuntu, arial;
+    border-color: lightgrey;
+    color: white;
+    margin-top: 20px;
+    border-width: 1px;
+    font-size: 16px;
+    border-radius: 3px;
+    cursor: pointer;
+    background-image: linear-gradient(to bottom right, var(--azure), var(--lightazure));
+}
+
+#clear-srch:hover {
+    width: 255px;
+    height: 42px;
+    font-family: ubuntu, arial;
+    border-color: lightgrey;
+    color: white;
+    margin-top: 20px;
+    border-width: 1px;
+    font-size: 16px;
+    border-radius: 3px;
+    cursor: pointer;
+    background-image: linear-gradient(to bottom right, var(--azure), rgb(157, 206, 255));
+}
+
+/* CSS for the area which displays the users previous searches */
 .previous {
     line-height: 27px;
     height: 35px;
@@ -90,6 +121,7 @@ li {
     border-width: 1px 1px 0px 1px;
     border-color: lightgrey;
     background-color: white;
+    cursor: pointer;
 }
 
 .previous:first-child {
@@ -108,9 +140,10 @@ li {
     background-color: rgb(238, 238, 238);
 }
 
+
+/* This is the results area which shows the searched city */
 .city-display {
     margin-left: 35px;
-
 }
 
 .border-div {
@@ -167,6 +200,8 @@ li {
 }
 
 
+
+/* This area is the CSS for the 5 day forecast section */
 .forecast-area {
     display: none;
     flex-direction: column;
@@ -186,14 +221,14 @@ li {
     justify-content: space-between;
 }
 
-/*  sep forecast divs */
+/*  individual divs for each day's forecast*/
 .forecast-display {
     border-style: solid;
     border-width: 1px;
     border-color:  lightgrey;
     padding: 10px;
     margin: 0px 5px 0px 5px;
-    background-color: var(--azure);
+    background-image: linear-gradient(to bottom right, var(--azure), var(--lightazure));
     border-radius: 3px;
 }
 
@@ -217,6 +252,8 @@ li {
     margin-bottom: 5px;
 }
 
+
+/* some changes to make it look decent at different screen sizes */
 @media (max-width: 860px) {
 
     h2 {
@@ -227,7 +264,8 @@ li {
         flex-direction: column;
     }
     
-    #previous-searches {
+    #previous-searches,
+    #remove-btn {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -246,9 +284,12 @@ li {
         font-size: 16px;
         margin: 15px 0px;
     }
-  
+    #clear-srch {
+        width: 206px;
+        height: 40px;
+        margin: 2px;
+    }
   }
-
 
   @media (max-width: 620px) {
     .forecast-rows {

@@ -1,4 +1,4 @@
-
+// Declaring global variables
 let searchBtn = document.querySelector('#search-button');
 let searchTxt = document.querySelector('#search');
 let cityNameEl = document.querySelector('#city-name');
@@ -12,6 +12,7 @@ let fcHeader = document.querySelector('.forecast-area');
 let pastSearchEl = document.querySelector('#previous-searches');
 let pastSearchVal = document.getElementsByClassName('previous');
 let forecastDisplay = document.getElementsByClassName('forecast-display');
+let clearBtn = document.querySelector('#clear-srch');
 
 let lat = [];
 let lon = [];
@@ -27,11 +28,9 @@ for (let i = 0; i < savedSearches.length; i++) {
 }
 
 
-
-
 // This function does 3 main things: 
 // 1. calls the weather API
-// 2. Pushes the city name to saved searches if it is not already there 
+// 2. Pushes the city name to saved searches if it is not already there. Invalid cities ignored. 
 // 3. Presents data from weather API to the page
 function getWeather(location) {
     let criteria = location;
@@ -116,9 +115,10 @@ function getWeather(location) {
                 forecastDisplay[i].appendChild(tempEl1);
                 forecastDisplay[i].appendChild(humidityEl1);
             }
-        })
+        }) // if there is an invalid input, an error will be shown on page
         .catch((error) => {
             errorEl.style.display = "block";
+            errorEl.style["background-color"] = "rgba(255, 0, 0, 0.61)";
             errorEl.innerText = "Error - City not found";
             console.log(error);
             return 'fail'
@@ -169,8 +169,9 @@ function addListener() {
 }
 addListener();
 
-function refreshDiv() {
+// Clears the previous search data
 
-    $("#previous-searches").load("https://genkidesu.github.io/weatherdashboard/dashboard.html", savedSearches);
-
-}
+clearBtn.addEventListener('click', function () {
+    localStorage.removeItem('pastSearches');
+    window.location.reload();
+})
